@@ -124,7 +124,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
@@ -141,7 +140,6 @@
                             <goal>report</goal>
                         </goals>
                     </execution>
-
                 </executions>
             </plugin>
         </plugins>

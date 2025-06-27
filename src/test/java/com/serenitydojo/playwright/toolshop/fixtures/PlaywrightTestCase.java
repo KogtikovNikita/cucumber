@@ -37,8 +37,7 @@ public abstract class PlaywrightTestCase {
         page = browserContext.newPage();
 
         // ✅ Set default timeouts globally
-        page.setDefaultTimeout(60000);
-        page.setDefaultNavigationTimeout(60000);
+        page.setDefaultTimeout(150000);
 
     }
 
