@@ -88,6 +88,9 @@ public class AddToCartTest implements TakesFinalScreenshot{
     @Test
     @DisplayName("Checking out multiple items")
     void whenCheckingOutMultipleItems(){
+
+
+
         navBar.openHomePage();
         productList.viewProductDetails("Bolt Cutters");
         productDetails.increaseQuantityBy(2);
