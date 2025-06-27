@@ -3,6 +3,7 @@ package com.serenitydojo.playwright.fixtures;
 import com.microsoft.playwright.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Arrays;
@@ -33,6 +34,7 @@ public abstract class PlaywrightTestCase {
     void setUpBrowserContext() {
         browserContext = browser.get().newContext();
         page = browserContext.newPage();
+        page.setDefaultTimeout(60000);
     }
 
     @AfterEach

@@ -1,5 +1,6 @@
 package com.serenitydojo.playwright.toolshop.contact;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.junit.UsePlaywright;
 import com.microsoft.playwright.options.AriaRole;
 import com.serenitydojo.playwright.toolshop.fixtures.*;
@@ -83,7 +84,7 @@ public class ContactFormTest extends PlaywrightTestCase {
 
 
             var errorMessage = page.getByRole(AriaRole.ALERT).getByText(fieldName + " is required");
-            errorMessage.waitFor();
+            errorMessage.waitFor(new Locator.WaitForOptions().setTimeout(20000));
             assertThat(errorMessage).isVisible();
         }
 
