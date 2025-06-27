@@ -4,7 +4,6 @@ import com.microsoft.playwright.*;
 import io.qameta.allure.Allure;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.io.ByteArrayInputStream;
@@ -32,17 +31,15 @@ public abstract class PlaywrightTestCase {
 
 
     @BeforeEach
-    void setUp(){
+    public void setUp(){
         browserContext = browser.get().newContext();
         page = browserContext.newPage();
-
-        // ✅ Set default timeouts globally
         page.setDefaultTimeout(150000);
 
     }
 
     @AfterEach
-    void closeContext() {
+    public void closeContext() {
         takeScreenshot("End of test");
         browserContext.close();
     }
@@ -57,7 +54,7 @@ public abstract class PlaywrightTestCase {
 
 
     @AfterAll
-    static void tearDown() {
+    public static void tearDown() {
         browser.get().close();
         browser.remove();
         playwright.get().close();

@@ -23,7 +23,7 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 @UsePlaywright(HeadlessChromeOptions.class)
 @DisplayName("Contact Form Tests")
 @Feature("Contacts")
-public class ContactFormTest extends PlaywrightTestCase {
+public class ContactFormIT extends PlaywrightTestCase {
 
     ContactForm contactForm;
     @BeforeEach
