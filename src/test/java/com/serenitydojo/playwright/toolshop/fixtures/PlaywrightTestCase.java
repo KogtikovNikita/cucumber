@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
+import java.util.Map;
 
 public abstract class PlaywrightTestCase implements TakesFinalScreenshot {
 
@@ -32,7 +33,11 @@ public abstract class PlaywrightTestCase implements TakesFinalScreenshot {
 
     @BeforeEach
     public void setUp(){
-        browserContext = browser.get().newContext();
+        browserContext = browser.get().newContext(new Browser.NewContextOptions()
+                .setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+                .setExtraHTTPHeaders(Map.of(
+                        "Accept-Language", "en-US,en;q=0.9"
+                )));
         page = browserContext.newPage();
         page.setDefaultTimeout(150000);
 
