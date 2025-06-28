@@ -20,7 +20,7 @@ import java.nio.file.Paths;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 @ExtendWith(AllureJunit5.class)
-@UsePlaywright(HeadlessChromeOptions.class)
+//@UsePlaywright(HeadlessChromeOptions.class)
 @DisplayName("Contact Form Tests")
 @Feature("Contacts")
 public class ContactFormIT extends PlaywrightTestCase {

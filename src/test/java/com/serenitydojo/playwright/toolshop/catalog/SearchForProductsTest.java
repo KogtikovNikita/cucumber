@@ -1,7 +1,5 @@
 package com.serenitydojo.playwright.toolshop.catalog;
 
-import com.microsoft.playwright.junit.UsePlaywright;
-import com.serenitydojo.playwright.toolshop.fixtures.HeadlessChromeOptions;
 import com.serenitydojo.playwright.toolshop.fixtures.PlaywrightTestCase;
 import com.serenitydojo.playwright.toolshop.catalog.pageObjects.ProductList;
 import com.serenitydojo.playwright.toolshop.catalog.pageObjects.SearchComponent;
@@ -12,7 +10,7 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(AllureJunit5.class)
-@UsePlaywright(HeadlessChromeOptions.class)
+//@UsePlaywright(HeadlessChromeOptions.class)
 @DisplayName("Search for products")
 @Feature("Product Catalog")
 public class SearchForProductsTest extends PlaywrightTestCase {

@@ -1,7 +1,6 @@
 package com.serenitydojo.playwright.toolshop.catalog;
 
 import com.microsoft.playwright.*;
-import com.microsoft.playwright.junit.UsePlaywright;
 import com.serenitydojo.playwright.toolshop.catalog.pageObjects.*;
 import com.serenitydojo.playwright.toolshop.fixtures.*;
 import io.qameta.allure.Feature;
@@ -15,9 +14,8 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @ExtendWith(AllureJunit5.class)
-@UsePlaywright(HeadlessChromeOptions.class)
 @Feature("Shopping Cart")
-public class AddToCartTest implements TakesFinalScreenshot{
+public class AddToCartTest extends PlaywrightTestCase implements TakesFinalScreenshot{
 
 
     SearchComponent searchComponent;
@@ -27,7 +25,7 @@ public class AddToCartTest implements TakesFinalScreenshot{
     CheckoutCart checkoutCart;
 
     @BeforeEach
-    void setUpAddToCartTest(Page page){
+    void setUpAddToCartTest(){
         searchComponent = new SearchComponent(page);
         productList = new ProductList(page);
         productDetails = new ProductDetails(page);
@@ -36,13 +34,13 @@ public class AddToCartTest implements TakesFinalScreenshot{
     }
 
     @BeforeEach
-    void openHomePage(Page page) {
+    void openHomePage() {
         navBar.openHomePage();
     }
 
     @BeforeEach
-    void setupTrace(BrowserContext context) {
-        context.tracing().start(
+    void setupTrace() {
+        browserContext.tracing().start(
                 new Tracing.StartOptions()
                         .setScreenshots(true)
                         .setSnapshots(true)
@@ -51,9 +49,9 @@ public class AddToCartTest implements TakesFinalScreenshot{
     }
 
     @AfterEach
-    void recordTrace(TestInfo testInfo, BrowserContext context){
+    void recordTrace(TestInfo testInfo){
         String traceName = testInfo.getDisplayName().replace(' ', '-').toLowerCase();
-        context.tracing().stop(
+        browserContext.tracing().stop(
                 new Tracing.StopOptions()
                         .setPath(Paths.get("target/traces/trace" + traceName +  ".zip"))
         );
@@ -88,9 +86,6 @@ public class AddToCartTest implements TakesFinalScreenshot{
     @Test
     @DisplayName("Checking out multiple items")
     void whenCheckingOutMultipleItems(){
-
-
-
         navBar.openHomePage();
         productList.viewProductDetails("Bolt Cutters");
         productDetails.increaseQuantityBy(2);
@@ -118,4 +113,9 @@ public class AddToCartTest implements TakesFinalScreenshot{
 
     }
 
+    @Override
+    public void takeScreenshot() {
+        System.out.println("Taking final screenshot");
+        ScreenshotManager.takeScreenshot(page, "Final Screenshot");
+    }
 }
