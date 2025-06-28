@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 
-public abstract class PlaywrightTestCase {
+public abstract class PlaywrightTestCase implements TakesFinalScreenshot {
 
 
     protected static ThreadLocal<Playwright> playwright = ThreadLocal.withInitial(() -> {
@@ -59,6 +59,11 @@ public abstract class PlaywrightTestCase {
         browser.remove();
         playwright.get().close();
         playwright.remove();
+    }
+
+    public void takeScreenshot() {
+        System.out.println("Taking final screenshot");
+        ScreenshotManager.takeScreenshot(page, "Final Screenshot");
     }
 
 }

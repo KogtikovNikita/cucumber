@@ -40,11 +40,8 @@ jobs:
           maven-version: 3.9.9
 
       # Step 4: Install playwright OS libraries
-      - name: Install Playwright dependencies
-        run: npx playwright install-deps
-
-      - name: Install Playwright Browsers
-        run: npx playwright install
+      - name: Set up Playwright Java Browsers
+        run: mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
 
       # Step 5: Cache Maven dependencies
       - name: Cache Maven dependencies

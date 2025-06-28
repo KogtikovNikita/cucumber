@@ -10,7 +10,6 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(AllureJunit5.class)
-//@UsePlaywright(HeadlessChromeOptions.class)
 @DisplayName("Search for products")
 @Feature("Product Catalog")
 public class SearchForProductsTest extends PlaywrightTestCase {

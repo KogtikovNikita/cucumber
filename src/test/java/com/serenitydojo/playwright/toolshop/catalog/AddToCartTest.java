@@ -15,7 +15,7 @@ import java.util.List;
 
 @ExtendWith(AllureJunit5.class)
 @Feature("Shopping Cart")
-public class AddToCartTest extends PlaywrightTestCase implements TakesFinalScreenshot{
+public class AddToCartTest extends PlaywrightTestCase{
 
 
     SearchComponent searchComponent;
@@ -113,9 +113,5 @@ public class AddToCartTest extends PlaywrightTestCase implements TakesFinalScree
 
     }
 
-    @Override
-    public void takeScreenshot() {
-        System.out.println("Taking final screenshot");
-        ScreenshotManager.takeScreenshot(page, "Final Screenshot");
-    }
+
 }
