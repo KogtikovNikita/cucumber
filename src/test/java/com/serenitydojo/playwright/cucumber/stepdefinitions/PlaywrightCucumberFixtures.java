@@ -37,7 +37,7 @@ public class PlaywrightCucumberFixtures {
 
     }
 
-    @After
+    @After(order = 100)
     public void closeContext() {
         browserContext.get().close();
         browser.get().close();

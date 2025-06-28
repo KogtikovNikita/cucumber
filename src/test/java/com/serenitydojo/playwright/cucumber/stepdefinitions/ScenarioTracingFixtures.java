@@ -16,7 +16,7 @@ public class ScenarioTracingFixtures {
         );
     }
 
-    @After
+    @After(order = 200)
     public void recordTraces(Scenario scenario) {
         String traceName = scenario.getName().replace(" ", "-").toLowerCase();
 
