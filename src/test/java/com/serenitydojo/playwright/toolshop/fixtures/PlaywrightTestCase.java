@@ -39,7 +39,6 @@ public abstract class PlaywrightTestCase implements TakesFinalScreenshot {
                         "Accept-Language", "en-US,en;q=0.9"
                 )));
         page = browserContext.newPage();
-        page.setDefaultTimeout(150000);
 
     }
 
