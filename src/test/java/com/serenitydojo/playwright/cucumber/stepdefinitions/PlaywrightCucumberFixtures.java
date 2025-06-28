@@ -23,7 +23,6 @@ public class PlaywrightCucumberFixtures {
     );
     private static final ThreadLocal<BrowserContext> browserContext = new ThreadLocal<>();
 
-
     private static final ThreadLocal<Page> page = new ThreadLocal<>();
 
     @Before(order = 100)
