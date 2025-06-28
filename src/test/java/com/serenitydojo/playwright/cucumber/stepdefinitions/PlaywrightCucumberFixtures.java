@@ -2,7 +2,6 @@ package com.serenitydojo.playwright.cucumber.stepdefinitions;
 
 import com.microsoft.playwright.*;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 
 import java.util.Arrays;
@@ -41,15 +40,12 @@ public class PlaywrightCucumberFixtures {
     @After
     public void closeContext() {
         browserContext.get().close();
-    }
-
-    @AfterAll
-    public static void tearDown() {
         browser.get().close();
         browser.remove();
         playwright.get().close();
         playwright.remove();
     }
+
 
     public static Page getPage(){
         return page.get();
